@@ -11,7 +11,7 @@
 // Pair found at index 0 and 2 (8+2) or pair found at 1 and 4 (7 + 3)
 
 // Naive Approach
-const findPair = (arr, sum) => {
+var findPair = (arr, sum) => {
   for (let i = 0; i < arr.length; i++) {
   	for (let j = 0; j < arr.length; j++) {
   		if (arr[i] + arr[j] === sum) {
@@ -22,9 +22,8 @@ const findPair = (arr, sum) => {
   return 'No pairs found!';
 };
 
-
 // More Optimized Approach
-const findPairDynamically = (arr, sum) => {
+var findPair = (arr, sum) => {
 	let storedPairs = {};
 	for (let i = 0; i < arr.length; i++) {
 		if (storedPairs[sum - arr[i]]) {
@@ -44,5 +43,7 @@ const testFindPair = (expected, output) => {
 	}
 };
 
-console.log(testFindPair(findPairDynamically([8, 7, 2, 5, 3, 1], 10), 'Pair found at index 1 and 4'));
-console.log(findPairDynamically([8, 7, 2, 5, 3, 1], 10));
+console.log(testFindPair(findPair([8, 7, 2, 5, 3, 1], 10), 'Pair found at index 1 and 4'));
+console.log(findPair([8, 7, 2, 5, 3, 1], 10));
+
+
