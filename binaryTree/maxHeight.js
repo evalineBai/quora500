@@ -69,7 +69,7 @@ class BinaryTree {
   		height++;
 	  	while (nodeCount > 0) {
 	  		let node = q[0];
-	  		q.shift(0);
+	  		q.shift();
 	  		if (node.left) {
 	  			q.push(node.left);
 	  		}
