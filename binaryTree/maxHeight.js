@@ -41,7 +41,7 @@ class BinaryTree {
 			}
 		}
 	}
-  
+
   // Recursive Approach
   findMaxHeight(root = this.root) {
 		if (!root) {
@@ -54,10 +54,32 @@ class BinaryTree {
   }
 
   // Iterative Approach
-  // findMaxHeightIteratively(root = this.root) {
-
-  // }
-
+  findMaxHeightIteratively(root = this.root) {
+  	if (!root) {
+  		return 0;
+  	}
+  	const q = [];
+  	let height = 0;
+  	q.push(root);
+  	while (true) {
+  		let nodeCount = q.length;
+  		if (nodeCount === 0) {
+  			return height;
+  		}
+  		height++;
+	  	while (nodeCount > 0) {
+	  		let node = q[0];
+	  		q.shift(0);
+	  		if (node.left) {
+	  			q.push(node.left);
+	  		}
+	  		if (node.right) {
+	  			q.push(node.right);
+	  		}
+	  		nodeCount--;
+	  	}
+  	}
+  }
 }
 
 const Tree = new BinaryTree();
@@ -68,7 +90,7 @@ Tree.insert(2);
 Tree.insert(7);
 
 console.log(Tree.findMaxHeight());
-// console.log(Tree.findMaxHeightIteratively());
+console.log(Tree.findMaxHeightIteratively());
 
 
 
