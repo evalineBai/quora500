@@ -36,12 +36,30 @@ class LinkedList {
       this.head = prev;
     }
   }
+
+  reverseUtil(current, prev) {
+    if (!current.next) {
+      this.head = current;
+      current.next = prev;
+      return;
+    }
+    var next = current.next;
+    current.next = prev;
+    this.reverseUtil(next, current);
+  }
+
+  recurseReverse() {
+    if (!this.head) {
+      return;
+    }
+    this.reverseUtil(this.head, null);
+  }
 }
 
 let list = new LinkedList();
 list.push(5);
 list.push(6);
 list.push(2);
+list.recurseReverse();
 
 console.log(list);
-console.log(list.reverse());
