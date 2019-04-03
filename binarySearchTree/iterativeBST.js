@@ -141,3 +141,15 @@ class BST {
     }
   }
 }
+
+let testTree = new BST(10);
+testTree.insert(5);
+testTree.insert(15);
+testTree.insert(2);
+testTree.insert(5);
+testTree.insert(13);
+testTree.insert(14);
+testTree.insert(22);
+testTree.invert();
+console.log(testTree);
+
